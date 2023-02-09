@@ -59,12 +59,12 @@ rendimientos2 = {
 
 #Ingresos usuario
 region = st.selectbox('Ingrese provincia: ',["Buenos Aires", "Cordoba", "Santa Fe", "Entre Rios", "La Pampa"])
-cultivo = st.selectbox('Ingrese tipo de cultivo: ', ["Soja", "Maiz"])
+cultivo = st.checkbox('Ingrese tipo de cultivo: ', ["Soja", "Maiz"])
 rinde = st.number_input("Ingrese rinde ultima campaña ", step=1)
 if st.button("Ingresar"):
-    rinde_historico = rendimientos.get((region, cultivo), 0)
+    rinde_historico = rendimientos2.get((region, cultivo), 0)
     dif = (rinde - rinde_historico)/rinde
-    rindeestimado = rendimientos2.get((region, cultivo), 0)
+    rindeestimado = rendimientos.get((region, cultivo), 0)
     resultado = rindeestimado * dif
     st.success(resultado)
     
