@@ -31,12 +31,6 @@ hmaizrsta = 6.17
 hmaizrer = 3.76
 hmaizrlapam = 7.15
 
-#Ingresos usuario
-region = st.form.selectbox('Ingrese provincia: ',["Buenos Aires", "Cordoba", "Santa Fe", "Entre Rios", "La Pampa"])
-cultivo = st.form.selectbox('Ingrese tipo de cultivo: ', ["Soja", "Maiz"])
-rinde = st.form.number_input("Ingrese rinde ultima campaña ", step=1)
-submit = st.form_submit_button("Ingresar")
-
 rendimientos = {
     ("Buenos Aires", "Soja"): esojarbsas,
     ("Cordoba", "Soja"): esojarcor,
@@ -63,12 +57,14 @@ rendimientos2 = {
     ("La Pampa", "Maiz"): hmaizrlapam,
 }
 
-def app():
+#Ingresos usuario
+region = st.selectbox('Ingrese provincia: ',["Buenos Aires", "Cordoba", "Santa Fe", "Entre Rios", "La Pampa"])
+cultivo = st.selectbox('Ingrese tipo de cultivo: ', ["Soja", "Maiz"])
+rinde = st.number_input("Ingrese rinde ultima campaña ", step=1)
+if st.button("Ingresar"):
     rinde_historico = rendimientos.get((region, cultivo), 0)
     dif = (rinde - rinde_historico)/rinde
     rindeestimado = rendimientos2.get((region, cultivo), 0)
-    return rindeestimado * dif
-
-if submit:
-    app()
+    resultado = rindeestimado * dif
+    st.success(resultado)
     
