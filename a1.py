@@ -72,7 +72,7 @@ if st.button("Ingresar"):
     dif = (rinde - rinde_historico)/rinde_historico
     ratio = 1 + dif
     resultado = rindeestimado * ratio
-    st.success(round(resultado, 2))
+    st.success("Rinde para cargar en excel", round(resultado, 2))
     
 rend_soja = {
     "Buenos Aires": esojarbsas,
@@ -90,7 +90,7 @@ rend_maiz = {
     "La Pampa": emaizrlapam,
 }
 
-st.write("En caso de no informar el rinde en F8819 utilizar los que figuran en las tablas inferiores")
+st.write("En caso de no informar el rinde en F8819 utilizar para el planteo productivo (excel) los que figuran en las tablas inferiores")
 
 st.header("Rendimientos estimados de Soja por Región")
 df = pd.DataFrame.from_dict(rend_soja, orient='index', columns=['Rendimiento (Ton/Ha)'])
