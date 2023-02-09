@@ -67,8 +67,8 @@ region = st.radio('Ingrese provincia: ',["Buenos Aires", "Cordoba", "Santa Fe", 
 cultivo = st.radio('Ingrese tipo de cultivo: ', ["Soja", "Maiz"])
 rinde = float(st.number_input("Ingrese rinde ultima campaña (Tn/ha) ", step=1))
 if st.button("Ingresar"):
-    rinde_historico = rendimientos2.get((region, cultivo), 0)
-    rindeestimado = rendimientos.get((region, cultivo), 0)
+    rinde_historico = float(rendimientos2.get((region, cultivo), 0))
+    rindeestimado = float(rendimientos.get((region, cultivo), 0))
     dif = float((rinde - rinde_historico)/rinde_historico)
     ratio = float(1 + dif)
     resultado = float(rindeestimado * ratio)
