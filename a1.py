@@ -72,7 +72,7 @@ if st.button("Ingresar"):
     dif = (rinde - rinde_historico)/rinde_historico
     ratio = 1 + dif
     resultado = rindeestimado * ratio
-    st.success("Rinde para cargar en excel", round(resultado, 2))
+    st.success("Rinde para cargar en excel: " + str(round(resultado, 2)))
     
 rend_soja = {
     "Buenos Aires": esojarbsas,
