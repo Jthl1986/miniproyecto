@@ -96,5 +96,5 @@ st.dataframe(df, width=800)
 
 st.header("Rendimientos estimados de Maíz por Región")
 df = pd.DataFrame.from_dict(rend_maiz, orient='index', columns=['Rendimiento (Ton/Ha)'])
-df.style.set_properties(subset=['Rendimiento (Ton/Ha)'], width='200px')
+df.style.set_properties(subset=['Rendimiento (Ton/Ha)'], width='800px')
 st.dataframe(df)
