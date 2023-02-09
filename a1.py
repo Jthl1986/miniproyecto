@@ -65,7 +65,7 @@ rendimientos2 = {
 #Ingresos usuario
 region = st.radio('Ingrese provincia: ',["Buenos Aires", "Cordoba", "Santa Fe", "Entre Rios", "La Pampa"])
 cultivo = st.radio('Ingrese tipo de cultivo: ', ["Soja", "Maiz"])
-rinde = st.number_input("Ingrese rinde ultima campaña ", step=1)
+rinde = st.number_input("Ingrese rinde ultima campaña (Tn/ha) ", step=1)
 if st.button("Ingresar"):
     rinde_historico = rendimientos2.get((region, cultivo), 0)
     rindeestimado = rendimientos.get((region, cultivo), 0)
@@ -90,11 +90,12 @@ rend_maiz = {
     "La Pampa": emaizrlapam,
 }
 
+st.write("En caso de no informar el rinde en F8819 utilizar los que figuran en las tablas inferiores")
+
 st.header("Rendimientos estimados de Soja por Región")
 df = pd.DataFrame.from_dict(rend_soja, orient='index', columns=['Rendimiento (Ton/Ha)'])
 st.dataframe(df, width=800)
 
 st.header("Rendimientos estimados de Maíz por Región")
 df = pd.DataFrame.from_dict(rend_maiz, orient='index', columns=['Rendimiento (Ton/Ha)'])
-df.style.set_properties(subset=['Rendimiento (Ton/Ha)'], width='800px')
-st.dataframe(df)
+st.dataframe(df, width=800)
