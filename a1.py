@@ -65,7 +65,7 @@ rendimientos2 = {
 #Ingresos usuario
 region = st.radio('Ingrese provincia: ',["Buenos Aires", "Cordoba", "Santa Fe", "Entre Rios", "La Pampa"])
 cultivo = st.radio('Ingrese tipo de cultivo: ', ["Soja", "Maiz"])
-rinde = float(st.number_input("Ingrese rinde ultima campaña (Tn/ha) ", step=1))
+rinde = float(st.number_input("Ingrese rinde ultima campaña (Tn/ha) "))
 if st.button("Ingresar"):
     rinde_historico = float(rendimientos2.get((region, cultivo), 0))
     rindeestimado = float(rendimientos.get((region, cultivo), 0))
