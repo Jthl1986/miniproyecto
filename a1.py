@@ -58,8 +58,8 @@ rendimientos2 = {
 }
 
 #Ingresos usuario
-region = st.selectbox('Ingrese provincia: ',["Buenos Aires", "Cordoba", "Santa Fe", "Entre Rios", "La Pampa"])
-cultivo = st.selectbox('Ingrese tipo de cultivo: ', ["Soja", "Maiz"])
+region = st.radio('Ingrese provincia: ',["Buenos Aires", "Cordoba", "Santa Fe", "Entre Rios", "La Pampa"])
+cultivo = st.radio('Ingrese tipo de cultivo: ', ["Soja", "Maiz"])
 rinde = st.number_input("Ingrese rinde ultima campaña ", step=1)
 if st.button("Ingresar"):
     rinde_historico = rendimientos2.get((region, cultivo), 0)
