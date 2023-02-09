@@ -6,18 +6,21 @@ import streamlit.components.v1 as components
 st.set_page_config(page_title="¿Qué rinde uso?",page_icon="🌱",layout="wide") 
 st.title("Calculadora de rinde")
 
-#rendimientos por cultivo por region
+#rendimientos estimados por region de soja
 esojarbsas = 2.41
 esojarcor = 2.50
 esojarsta = 2.13
 esojarer = 1.70
 esojarlapam = 2.15
 
+#rendimientos estimados por region de maiz
 emaizrbsas = 6.72
 emaizrcor = 7.49
 emaizrsta = 5.51
 emaizrer = 3.0
 emaizrlapam = 6.98
+
+#https://www.bcr.com.ar/es/mercados/gea/estimaciones-nacionales-de-produccion/estimaciones
 
 hsojarbsas = 3.30
 hsojarcor = 2.97
@@ -30,6 +33,8 @@ hmaizrcor = 7.50
 hmaizrsta = 6.17
 hmaizrer = 3.76
 hmaizrlapam = 7.15
+
+#https://datosestimaciones.magyp.gob.ar/reportes.php?reporte=Estimaciones
 
 rendimientos = {
     ("Buenos Aires", "Soja"): esojarbsas,
@@ -69,3 +74,21 @@ if st.button("Ingresar"):
     resultado = rindeestimado * ratio
     st.success(round(resultado, 2))
     
+rend_soja = {
+    "Buenos Aires": esojarbsas,
+    "Cordoba": esojarcor,
+    "Santa Fe": esojarsta,
+    "Entre Rios": esojarer,
+    "La Pampa": esojarlapam,
+}
+
+st.header("Rendimientos de Soja por Región")
+if st.checkbox("Mostrar rendimientos"):
+    with st.spinner("Cargando rendimientos..."):
+        st.write("Rendimientos estimados de soja por región:")
+        expanded = st.checkbox("Expandir tabla")
+        if expanded:
+            df = pd.DataFrame.from_dict(rend_soja, orient='index', columns=['Rendimiento (Ton/Ha)'])
+            st.dataframe(df)
+        else:
+            st.write("Utilice el expander para desplegar la tabla.")
