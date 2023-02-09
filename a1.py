@@ -90,6 +90,10 @@ rend_maiz = {
     "La Pampa": emaizrlapam,
 }
 
-st.header("Rendimientos de Soja por Región")
+st.header("Rendimientos estimados de Soja por Región")
 df = pd.DataFrame.from_dict(rend_soja, orient='index', columns=['Rendimiento (Ton/Ha)'])
+st.dataframe(df)
+
+st.header("Rendimientos estimados de Maíz por Región")
+df = pd.DataFrame.from_dict(rend_maiz, orient='index', columns=['Rendimiento (Ton/Ha)'])
 st.dataframe(df)
