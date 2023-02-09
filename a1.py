@@ -83,9 +83,7 @@ rend_soja = {
 }
 
 st.header("Rendimientos de Soja por Región")
-expanded= st.expander("Rendimientos estimados de soja por región:")
+expanded = st.expander("Rendimientos estimados de soja por región:")
 if expanded:
     df = pd.DataFrame.from_dict(rend_soja, orient='index', columns=['Rendimiento (Ton/Ha)'])
     st.dataframe(df)
-else:
-    st.write("Utilice el expander para desplegar la tabla.")
