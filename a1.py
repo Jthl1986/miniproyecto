@@ -32,9 +32,9 @@ hmaizrer = 3.76
 hmaizrlapam = 7.15
 
 #Ingresos usuario
-region = st.selectbox('Ingrese provincia: ',["Buenos Aires", "Cordoba", "Santa Fe", "Entre Rios", "La Pampa"])
-cultivo = st.selectbox('Ingrese tipo de cultivo: ', ["Soja", "Maiz"])
-rinde = st.number_input("Ingrese rinde ultima campaña ", step=1)
+region = st.form.selectbox('Ingrese provincia: ',["Buenos Aires", "Cordoba", "Santa Fe", "Entre Rios", "La Pampa"])
+cultivo = st.form.selectbox('Ingrese tipo de cultivo: ', ["Soja", "Maiz"])
+rinde = st.form.number_input("Ingrese rinde ultima campaña ", step=1)
 submit = st.form_submit_button("Ingresar")
 
 rendimientos = {
