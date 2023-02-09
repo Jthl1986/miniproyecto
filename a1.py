@@ -82,8 +82,14 @@ rend_soja = {
     "La Pampa": esojarlapam,
 }
 
-#st.header("Rendimientos de Soja por Región")
-expanded = st.expander("Rendimientos estimados de soja por región:")
-if expanded:
-    df = pd.DataFrame.from_dict(rend_soja, orient='index', columns=['Rendimiento (Ton/Ha)'])
-    st.dataframe(df)
+rend_maiz = {
+    "Buenos Aires": emaizrbsas,
+    "Cordoba": emaizrcor,
+    "Santa Fe": emaizrsta,
+    "Entre Rios": emaizrer,
+    "La Pampa": emaizrlapam,
+}
+
+st.header("Rendimientos de Soja por Región")
+df = pd.DataFrame.from_dict(rend_soja, orient='index', columns=['Rendimiento (Ton/Ha)'])
+st.dataframe(df)
