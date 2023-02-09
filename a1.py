@@ -82,7 +82,7 @@ rend_soja = {
     "La Pampa": esojarlapam,
 }
 
-st.header("Rendimientos de Soja por Región")
+#st.header("Rendimientos de Soja por Región")
 expanded = st.expander("Rendimientos estimados de soja por región:")
 if expanded:
     df = pd.DataFrame.from_dict(rend_soja, orient='index', columns=['Rendimiento (Ton/Ha)'])
