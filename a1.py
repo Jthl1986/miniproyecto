@@ -63,8 +63,9 @@ cultivo = st.selectbox('Ingrese tipo de cultivo: ', ["Soja", "Maiz"])
 rinde = st.number_input("Ingrese rinde ultima campaña ", step=1)
 if st.button("Ingresar"):
     rinde_historico = rendimientos2.get((region, cultivo), 0)
-    dif = (rinde - rinde_historico)/rinde
     rindeestimado = rendimientos.get((region, cultivo), 0)
-    resultado = rindeestimado * dif
-    st.success(resultado)
+    dif = (rinde - rinde_historico)/rinde_historico
+    ratio = 1 + dif
+    resultado = rindeestimado * ratio
+    st.success(round(resultado, 2))
     
